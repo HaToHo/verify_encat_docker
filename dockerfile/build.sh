@@ -2,6 +2,8 @@
 
 repository="itsdirg/verify_encat"
 
+dir=$(dirname `which $0`)
+
 # Check if running on mac
 if [ $(uname) = "Darwin" ]; then
 
@@ -20,4 +22,4 @@ else
     fi
 fi
 ${sudo} docker rmi -f ${repository}
-${sudo} docker build --no-cache -t=${repository} .
+${sudo} docker build --no-cache -t=${repository} ${dir}
